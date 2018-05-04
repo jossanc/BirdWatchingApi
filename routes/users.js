@@ -21,7 +21,7 @@ router.get('/:username', function(req,res){
     }}).then((User)=>{
         delete User.password;
         res.send(User);
-      
+       
 }).catch((err)=>{
   res.status(403).send({error:err.toString()});
 })});
