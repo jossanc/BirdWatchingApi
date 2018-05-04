@@ -14,6 +14,11 @@ router.get('/', (req, resp)=>{
     );
 })
 
+/*
+sequelize.query("SELECT * FROM users").then(myTableRows => {
+  console.log(myTableRows)
+})*/
+
 router.get('/:username', function(req,res){
     
     models.User.findOne({where:{
