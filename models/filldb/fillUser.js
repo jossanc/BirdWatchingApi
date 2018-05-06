@@ -13,3 +13,4 @@ User.bulkCreate([
         area: 'Valladolid'
     },
 ]).then(() => { }).catch(() => { });
+    
