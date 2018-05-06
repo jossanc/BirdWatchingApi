@@ -26,6 +26,25 @@ router.get('/byUser/:id', (req, res) => {
     .catch(()=>res.sendStatus(500));
 });
 
+router.post('/', (req, res) => {
+    //Creates a sighting
+    console.log(req);
+    if (req.body.userName === undefined ||
+        req.body.commonName === undefined ||
+        req.body.areaName === undefined ) {
+        res.sendStatus(412);
+        return;
+    }
+    var data = {};
+    data.user = req.body.userName;
+    data.commonBirdName = req.body.commonName;
+    data.area = req.body.areaName;
+
+    Sighting.create(data)
+        .then((ok) => res.send(ok))
+        .catch((err) => res.sendStatus(500));
+});
+
 
 module.exports = {
     Sighting: router
