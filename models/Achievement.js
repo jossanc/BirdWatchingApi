@@ -1,38 +1,26 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
 
-const Sighting = database.define('sightings', {
-    sightingId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true},
-    sightingDate:{type:Sequelize.DATE, defaultValue:Sequelize.NOW},
+const Area = database.define('areas', {
+    achievementName:{ type: Sequelize.STRING,primaryKey:true},
     user: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
-          model:User,
+          model: User,
                // This is the column name of the referenced model
           key: 'userName',
                // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
     },
-    commonBirdName: {
+    challenge: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
-          model: Bird,
+          model: Challenge,
                // This is the column name of the referenced model
-          key: 'commonName',
-               // This declares when to check the foreign key constraint. PostgreSQL only.
-          deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-        }
-    },
-    area: {
-        type: Sequelize.STRING,
-             references: {
-          // This is a reference to another model
-          model: Area,
-               // This is the column name of the referenced model
-          key: 'areaName',
+          key: 'challengeName',
                // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
@@ -41,5 +29,5 @@ const Sighting = database.define('sightings', {
 
 
 module.exports={
-	User
+    Achievement
 }

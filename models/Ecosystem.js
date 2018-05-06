@@ -1,4 +1,4 @@
-const { database } = require('./sequelize');
+const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
 
 const Ecosystem = database.define('ecosystems', {
