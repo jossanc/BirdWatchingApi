@@ -1,4 +1,4 @@
-const { database } = require('./models/sequelize');
+const { database } = require('./models/Sequelize');
 const models = require('./models/Models');
 
 console.log("Procediendo a la creación de la base de datos");
@@ -14,8 +14,8 @@ setTimeout(()=>{
   console.log("En 5 segundos se inicializarán las tablas con datos de ejemplo");
 },5000);
 
-setTimeout(()=>{
+/*setTimeout(()=>{
   const models = require('./models/filldb/fillModels');
   console.log("Instalación finalizada");
   console.log("Puede arrancar la aplicación");
-},10000);
+},3000);*/

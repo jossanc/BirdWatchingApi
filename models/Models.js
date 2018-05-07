@@ -1,10 +1,10 @@
-const { User } = require('./User');
 const { Area } = require('./Area');
-const { Ecosystem } = require('./Ecosystem');
-const { Bird } = require('./Bird');
 const { Challenge } = require('./Challenge');
+const { Ecosystem } = require('./Ecosystem');
 const { Season } = require('./Season');
+const { User } = require('./User');
 const { Achievement } = require('./Achievement');
+const { Bird } = require('./Bird');
 const { Sighting } = require('./Sighting');
 
 module.exports = {

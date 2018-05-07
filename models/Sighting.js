@@ -1,5 +1,8 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
+const User = require('./User');
+const Bird = require('./Bird');
+const Area = require('./Area');
 
 const Sighting = database.define('sightings', {
     sightingId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true},

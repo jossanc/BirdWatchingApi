@@ -1,7 +1,9 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
+const User = require('./User');
+const Challenge = require('./Challenge');
 
-const Area = database.define('areas', {
+const Achievement = database.define('achievements', {
     achievementName:{ type: Sequelize.STRING,primaryKey:true},
     user: {
         type: Sequelize.STRING,

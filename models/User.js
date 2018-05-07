@@ -1,5 +1,6 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
+const Area = require('./Area');
 
 const User = database.define('users', {
     userName:{ type: Sequelize.STRING,primaryKey:true},

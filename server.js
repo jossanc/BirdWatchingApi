@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { User } = require('./routes/Users');
-const { Bird } = requier('./routes/Birds');
+const { Bird } = require('./routes/Birds');
 const { Sighting } = require('./routes/Sightings');
 
 const PORT = 8181;
