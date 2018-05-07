@@ -5,7 +5,7 @@ const Area = require('./Area');
 const User = database.define('users', {
     userName:{ type: Sequelize.STRING,primaryKey:true},
     password:{type:Sequelize.STRING},
-    area: {
+ /*   area: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
@@ -15,9 +15,10 @@ const User = database.define('users', {
                // This declares when to check the foreign key constraint. PostgreSQL only.
          // deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
-    }
+    }*/
 }, { createdAt: false, updatedAt: false });
 
+User.belongsTo(Area,{foreignKey: 'fk_area', targetKey:'area'});
 
 module.exports={
 	User

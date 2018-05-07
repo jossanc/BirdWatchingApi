@@ -5,12 +5,12 @@ console.log("Procediendo a la creación de la base de datos");
 
 console.log("Primero eliminamos la base de datos");
 
-database.drop();
+//database.drop();
 
 console.log("En 5 segundos se crearán las tablas en la base de datos");
 
 setTimeout(()=>{
-  database.sync();
+  database.sync({force:true});
   console.log("En 5 segundos se inicializarán las tablas con datos de ejemplo");
 },5000);
 
