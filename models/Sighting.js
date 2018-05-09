@@ -1,13 +1,13 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
-const User = require('./User');
-const Bird = require('./Bird');
-const Area = require('./Area');
+const { User } = require('./User');
+const { Bird } = require('./Bird');
+const { Area } = require('./Area');
 
 const Sighting = database.define('sightings', {
     sightingId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true},
-    sightingDate:{type:Sequelize.DATE, defaultValue:Sequelize.NOW},
-    user: {
+    sightingDate:{type:Sequelize.DATE, defaultValue:Sequelize.NOW}
+    /*user: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
@@ -39,10 +39,13 @@ const Sighting = database.define('sightings', {
                // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
-    }
+    }*/
 }, { createdAt: false, updatedAt: false });
+Sighting.belongsTo(User,{foreignKey:'userName', targetKey:'userName'});
+Sighting.belongsTo(Bird,{foreignKey:'commomBirdName', targetKey:'commomName'});
+Sighting.belongsTo(Area,{foreignKey: 'areaName', targetKey:'areaName'});
 
 
 module.exports={
-	User
+	Sighting
 }

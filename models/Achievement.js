@@ -1,11 +1,11 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
-const User = require('./User');
-const Challenge = require('./Challenge');
+const { User } = require('./User');
+const { Challenge } = require('./Challenge');
 
 const Achievement = database.define('achievements', {
-    achievementName:{ type: Sequelize.STRING,primaryKey:true},
-    user: {
+    achievementName:{ type: Sequelize.STRING,primaryKey:true}
+/*user: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
@@ -26,9 +26,10 @@ const Achievement = database.define('achievements', {
                // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
-    }
+    }*/
 }, { createdAt: false, updatedAt: false });
-
+Achievement.belongsTo(User,{foreignKey: 'userName', targetKey:'userName'});
+Achievement.belongsTo(Challenge,{foreignKey: 'challenge', targetKey: 'challengeName'});
 
 module.exports={
     Achievement
