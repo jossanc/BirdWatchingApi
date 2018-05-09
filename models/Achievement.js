@@ -29,7 +29,7 @@ const Achievement = database.define('achievements', {
     }*/
 }, { createdAt: false, updatedAt: false });
 Achievement.belongsTo(User,{foreignKey: 'userName', targetKey:'userName'});
-Achievement.belongsTo(Challenge,{foreignKey: 'challenge', targetKey: 'challengeName'});
+Achievement.belongsTo(Challenge,{foreignKey: 'challengeName', targetKey: 'challengeName'});
 
 module.exports={
     Achievement

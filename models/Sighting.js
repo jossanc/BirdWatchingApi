@@ -42,7 +42,7 @@ const Sighting = database.define('sightings', {
     }*/
 }, { createdAt: false, updatedAt: false });
 Sighting.belongsTo(User,{foreignKey:'userName', targetKey:'userName'});
-Sighting.belongsTo(Bird,{foreignKey:'commomBirdName', targetKey:'commomName'});
+Sighting.belongsTo(Bird,{foreignKey:'commomBirdName', targetKey:'commonName'});
 Sighting.belongsTo(Area,{foreignKey: 'areaName', targetKey:'areaName'});
 
 
