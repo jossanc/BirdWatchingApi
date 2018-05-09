@@ -34,9 +34,9 @@ const Bird = database.define('birds', {
           // This is a reference to another model
           model: Season,
                // This is the column name of the referenced model
-          key: 'seasonName',
+          key: 'seasonName'//,
                // This declares when to check the foreign key constraint. PostgreSQL only.
-          deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+         // deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
     }
   //  ecosystem:{type: Sequelize.STRING}

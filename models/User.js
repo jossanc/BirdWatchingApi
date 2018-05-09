@@ -1,11 +1,12 @@
 const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
-const Area = require('./Area');
+const { Area } = require('./Area');
 
 const User = database.define('users', {
     userName:{ type: Sequelize.STRING,primaryKey:true},
-    password:{type:Sequelize.STRING},
- /*   area: {
+    password:{type:Sequelize.STRING}
+   // area:{type:Sequelize.STRING}
+    /*area: {
         type: Sequelize.STRING,
              references: {
           // This is a reference to another model
@@ -18,8 +19,8 @@ const User = database.define('users', {
     }*/
 }, { createdAt: false, updatedAt: false });
 
-User.belongsTo(Area,{foreignKey: 'fk_area', targetKey:'area'});
-
+User.belongsTo(Area,{foreignKey: 'areaName', targetKey:'areaName'});
+//User.belongsTo(Area);
 module.exports={
 	User
 }
