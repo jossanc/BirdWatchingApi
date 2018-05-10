@@ -19,12 +19,6 @@ router.get('/:id', (req, res) => {
         .catch(error => res.sendStatus(500));
 });
 
-router.get('/:userName', (req, res) => {
-    //Gets the challenges of an user
-    Challenge.find({ where: { challengeName: req.params.userName } })
-        .then(challenge => res.send(challenge))
-        .catch(error => res.sendStatus(500));
-});
 
 module.exports = {
     Challenge: router
