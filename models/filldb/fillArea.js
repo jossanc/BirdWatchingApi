@@ -10,4 +10,4 @@ Area.bulkCreate([
 {areaName: 'Salamanca'},
 {areaName: 'Ávila'},
 {areaName: 'Segovia'}
-]).then(() => { }).catch(() => { });
+]).then(() => { }).catch((e) => {console.log(e) });

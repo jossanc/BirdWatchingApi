@@ -3,12 +3,12 @@ const { User } = require('../User');
 
 User.bulkCreate([
     {
-        username: 'Jose',
+        userName: 'Jose',
         password: 'pass123',
         area: 'Valladolid'
     },
     {
-        username: 'Marga',
+        userName: 'Marga',
         password: 'pass123',
         area: 'Valladolid'
     }

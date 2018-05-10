@@ -6,6 +6,6 @@ Bird.bulkCreate([
     family: 'Psittacidae',
     areaName: 'Zamora',
     ecosystemName: 'Zona urbana',
-    seasonName: ' Todo el año'
+    seasonName: 'Todo el año'
 }
 ]).then(() => { }).catch(() => { });
