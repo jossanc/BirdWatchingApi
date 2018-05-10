@@ -21,7 +21,7 @@ sequelize.query("SELECT * FROM users").then(myTableRows => {
 
 router.get('/:username', function(req,res){
     
-    models.User.findOne({where:{
+    User.findOne({where:{
         userName: req.params.username 
     }}).then((User)=>{
         delete User.password;
