@@ -46,6 +46,27 @@ router.post('/', (req, res) => {
         .catch((err) => res.sendStatus(500));
 });
 
+router.put('/update',function(req,res){
+    const userName1 = req.body.userName;
+    Sighting.findAll({where:{user:userName1}})
+    .then((User)=>{
+        User.update({
+            userName:userName1,
+            password:req.body.password,
+            areaName:req.body.areaName
+        })
+    }).catch(()=>res.sendStatus(500));
+});
+
+router.delete('/', function(req,res){
+        const userName=req.params.userName;
+        User.destroy({where:{userName:userName}})
+        .then((ok)=>res.status(200).send()) 
+        .catch((err)=>{
+      res.status(403).send({error:err.toString()});
+  })
+});
+
 
 module.exports = {
     Sighting: router
