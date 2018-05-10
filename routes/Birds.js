@@ -21,14 +21,14 @@ router.get('/:id', (req, res) => {
 
 router.get('/bySeason/:id', (req, res) => {
     const seasonName = req.params.id;
-    Bird.findAll({where:{season:seasoName}})
+    Bird.findAll({where:{seasonName:seasonName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });
 
 router.get('/byArea/:id', (req, res) => {
     const areaName = req.params.id;
-    Bird.findAll({where:{area:areaName}})
+    Bird.findAll({where:{areaName:areaName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });

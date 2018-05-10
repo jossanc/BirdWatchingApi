@@ -36,9 +36,10 @@ router.post('/', (req, res) => {
         return;
     }
     var data = {};
-    data.user = req.body.userName;
+    data.sightingDate = Sequelize.NOW;
+    data.userName = req.body.userName;
     data.commonBirdName = req.body.commonName;
-    data.area = req.body.areaName;
+    data.areaName = req.body.areaName;
 
     Sighting.create(data)
         .then((ok) => res.send(ok))
