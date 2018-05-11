@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const { User } = require('./routes/Users');
 const { Bird } = require('./routes/Birds');
 const { Sighting } = require('./routes/Sightings');
+const { Photo } = require('./routes/Photos');
 
 const PORT = 8181;
 var app = express();
@@ -16,6 +17,7 @@ app.get('/hola', (request, response)=>{
 app.use('/users',User);
 app.use('/birds',Bird);
 app.use('/sightings',Sighting);
+app.use('/photos',Photo);
 
 
 //this after calling all the routes
