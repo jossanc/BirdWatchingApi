@@ -6,6 +6,9 @@ const { User } = require('./User');
 const { Achievement } = require('./Achievement');
 const { Bird } = require('./Bird');
 const { Sighting } = require('./Sighting');
+const { Photo } = require('./Photo');
+const { Live } = require('./Live');
+const { BirdSeason } = require('./BirdSeason');
 
 module.exports = {
   Area,
@@ -15,5 +18,8 @@ module.exports = {
   User,
   Achievement,
   Bird,
-  Sighting
+  Sighting,
+  Photo,
+  Live,
+  BirdSeason
 };

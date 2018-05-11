@@ -19,8 +19,8 @@ setTimeout(()=>{
   console.log("Instalación finalizada");
   console.log("Puede arrancar la aplicación");
 },6000);
-
+/*
 setTimeout(()=>{
   database.close();
   console.log("En 5 segundos se cerrara la base de datos");
-},5000);
+},5000);*/
