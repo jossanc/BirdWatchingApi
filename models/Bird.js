@@ -9,10 +9,7 @@ const Bird = database.define('birds', {
     scientificName:{type: Sequelize.STRING(40)},
     family:{type: Sequelize.STRING(40)}
 }, { createdAt: false, updatedAt: false });
-//area.belongsTo(areas, {foreignKey: 'areaName'});
-//Bird.belongsTo(Area,{foreignKey: 'areaName', targetKey:'areaName'});
 Bird.belongsTo(Ecosystem,{foreignKey:'ecosystemName',targetKey:'ecosystemName'});
-//Bird.belongsTo(Season,{foreignKey:'seasonName', targetKey:'seasonName'});
 
 module.exports={
     Bird
