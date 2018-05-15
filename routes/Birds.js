@@ -1,6 +1,8 @@
 const express = require('express');
 const Sequelize = require('sequelize');
 const { Bird } = require('../models/Models');
+const { BirdSeason } = require('../models/Models');
+const { Live } = require('../models/Models');
 
 var router = express.Router();
 
@@ -19,19 +21,6 @@ router.get('/:id', (req, res) => {
         .catch(error => res.sendStatus(500));
 });
 
-router.get('/bySeason/:id', (req, res) => {
-    const seasonName = req.params.id;
-    Bird.findAll({where:{seasonName:seasonName}})
-    .then(data=>res.send(data))
-    .catch(()=>res.sendStatus(500));
-});
-
-router.get('/byArea/:id', (req, res) => {
-    const areaName = req.params.id;
-    Bird.findAll({where:{areaName:areaName}})
-    .then(data=>res.send(data))
-    .catch(()=>res.sendStatus(500));
-});
 
 module.exports = {
     Bird: router
