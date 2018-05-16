@@ -4,7 +4,7 @@ const { BirdSeason } = require('../models/Models');
 
 var router = express.Router();
 
-router.get('/bySeason/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const seasonName = req.params.id;
     BirdSeason.findAll({where:{seasonName:seasonName}})
     .then(data=>res.send(data))

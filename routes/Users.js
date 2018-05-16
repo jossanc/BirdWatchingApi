@@ -42,9 +42,9 @@ router.post('/register', (req, res) => {
         return;
     }*/
     var data = {};
-    data.userName = req.params.userName;
-    data.password = req.params.password;
-    data.areaName = req.params.areaName;
+    data.userName = req.body.userName;
+    data.password = req.body.password;
+    data.areaName = req.body.areaName;
 
     User.create(data)
         .then((ok) => res.send(ok))

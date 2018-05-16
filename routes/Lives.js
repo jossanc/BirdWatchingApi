@@ -4,7 +4,7 @@ const { Live } = require('../models/Models');
 
 var router = express.Router();
 
-router.get('/byArea/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const areaName = req.params.id;
     Live.findAll({where:{areaName:areaName}})
     .then(data=>res.send(data))

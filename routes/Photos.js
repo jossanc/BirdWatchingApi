@@ -11,6 +11,14 @@ router.get('/:commonName', (req, res) => {
         .catch(error => res.sendStatus(500));
 });
 
+router.get('/Cotorra.jpg', function(req,res){
+ //   if(req.userName){
+        res.sendFile('/home/tfg/node/BirdWatchingApi/routes/cotorra-argentina-1.jpg');
+   // } else {
+     //   res.status(401).send('Authorization required!');
+    //}
+});
+
 module.exports = {
     Photo
 }
