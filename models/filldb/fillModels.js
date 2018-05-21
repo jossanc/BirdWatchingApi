@@ -3,6 +3,8 @@ require('./fillEcosystem');
 require('./fillSeason');
 require('./fillChallenge');
 require('./fillBird');
+require('./fillBirdSeason');
+require('./fillLive');
 require('./fillUser');
 require('./fillAchievement');
 require('./fillSighting');

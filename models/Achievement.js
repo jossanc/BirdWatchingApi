@@ -4,7 +4,8 @@ const { User } = require('./User');
 const { Challenge } = require('./Challenge');
 
 const Achievement = database.define('achievements', {
-    achievementName:{ type: Sequelize.STRING,primaryKey:true}
+    achievementId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true},
+    achievementName:{ type: Sequelize.STRING(40)}
 /*user: {
         type: Sequelize.STRING,
              references: {
