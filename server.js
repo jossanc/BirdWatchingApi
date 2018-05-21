@@ -6,6 +6,7 @@ const { BirdSeason } = require('./routes/BirdSeasons');
 const { Live } = require('./routes/Lives');
 const { Sighting } = require('./routes/Sightings');
 const { Photo } = require('./routes/Photos');
+const { Area } = require('./routes/Areas');
 
 const PORT = 8181;
 var app = express();
@@ -22,6 +23,7 @@ app.use('/bySeason',BirdSeason);
 app.use('/byArea',Live);
 app.use('/sightings',Sighting);
 app.use('/photos',Photo);
+app.use('/areas',Area);
 /*
 app.get('/Cotorra.jpg', function(req,res){
  //   if(req.userName){

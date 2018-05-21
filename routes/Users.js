@@ -4,7 +4,7 @@ const { User } = require('../models/Models');
 
 
 var router = express.Router();
-
+/*
 router.get('/', (req, resp)=>{
     User.findAll({}).then((users)=>{
         resp.send(users);
@@ -13,7 +13,7 @@ router.get('/', (req, resp)=>{
         resp.sendStatus(500)}
     );
 })
-
+*/
 /*
 sequelize.query("SELECT * FROM users").then(myTableRows => {
   console.log(myTableRows)
@@ -21,12 +21,25 @@ sequelize.query("SELECT * FROM users").then(myTableRows => {
 
 router.get('/:username', function(req,res){
     
-    User.findOne({where:{
-        userName: req.params.username 
+    User.findOne({attributes:['userName','areaName'],
+	where:{userName: req.params.username}
+    }).then((User)=>{
+        //var userTosend = Object.assign({}, User);
+       // delete User.password;
+        res.send(User);
+}).catch((err)=>{
+  res.status(403).send({error:err.toString()});
+})});
+
+router.post('/login', function(req,res){
+    
+    User.findOne({attributes:['userName'],
+	where:{
+		userName: req.body.userName,
+		password: req.body.password
     }}).then((User)=>{
         delete User.password;
         res.send(User);
-       
 }).catch((err)=>{
   res.status(403).send({error:err.toString()});
 })});
