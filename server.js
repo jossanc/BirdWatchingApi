@@ -8,6 +8,7 @@ const { Sighting } = require('./routes/Sightings');
 const { Photo } = require('./routes/Photos');
 const { Area } = require('./routes/Areas');
 const { Challenge } = require('./routes/Challenges');
+const { Achievement } = require('./routes/Achievements');
 
 const PORT = 8181;
 var app = express();
@@ -15,9 +16,6 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/hola', (request, response)=>{
-    response.send("Hola mundo funciona");
-});
 app.use('/users',User);
 app.use('/birds',Bird);
 app.use('/bySeason',BirdSeason);
@@ -26,6 +24,7 @@ app.use('/sightings',Sighting);
 app.use('/photos',Photo);
 app.use('/areas',Area);
 app.use('/challenges',Challenge);
+app.use('/achievements',Achievement);
 /*
 app.get('/Cotorra.jpg', function(req,res){
  //   if(req.userName){

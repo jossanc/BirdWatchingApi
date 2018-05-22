@@ -14,7 +14,8 @@ router.get('/', (req, resp)=>{
 })
 router.get('/:userName', (req, res) => {
     //Gets the achievements of an user
-    Achievement.find({ where: {AchievementName: req.params.userName } })
+    Achievement.findAll({attributes:['achievementName','challengeName'],
+	 where: {userName: req.params.userName } })
         .then(Achievement => res.send(Achievement))
         .catch(error => res.sendStatus(500));
 });
@@ -31,5 +32,5 @@ router.post('/', (req, res) => {
         .catch((err) => res.sendStatus(500));
 });
 module.exports = {
-    Achivement: router
+    Achievement: router
 }
