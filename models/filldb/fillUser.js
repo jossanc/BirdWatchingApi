@@ -3,14 +3,14 @@ const { User } = require('../User');
 
 User.bulkCreate([
     {
-        userName: 'Jose',
-        password: 'pass123',
-        area: 'Valladolid'
+        userName: 'jose',
+        password: 'jose',
+        areaName: 'Valladolid'
     },
     {
         userName: 'Marga',
         password: 'pass123',
-        area: 'Valladolid'
+        areaName: 'Valladolid'
     }
 ]).then(() => { }).catch(() => { });
     

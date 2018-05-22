@@ -7,6 +7,7 @@ const { Live } = require('./routes/Lives');
 const { Sighting } = require('./routes/Sightings');
 const { Photo } = require('./routes/Photos');
 const { Area } = require('./routes/Areas');
+const { Challenge } = require('./routes/Challenges');
 
 const PORT = 8181;
 var app = express();
@@ -24,6 +25,7 @@ app.use('/byArea',Live);
 app.use('/sightings',Sighting);
 app.use('/photos',Photo);
 app.use('/areas',Area);
+app.use('/challenges',Challenge);
 /*
 app.get('/Cotorra.jpg', function(req,res){
  //   if(req.userName){
