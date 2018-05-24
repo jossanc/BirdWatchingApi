@@ -18,7 +18,7 @@ router.get('/', (req, resp)=>{
 sequelize.query("SELECT * FROM users").then(myTableRows => {
   console.log(myTableRows)
 })*/
-
+/*
 router.get('/:username', function(req,res){
     
     User.findOne({attributes:['userName','areaName'],
@@ -30,7 +30,7 @@ router.get('/:username', function(req,res){
 }).catch((err)=>{
   res.status(403).send({error:err.toString()});
 })});
-
+*/
 router.post('/login', function(req,res){
     
     User.findOne({attributes:['userName'],
@@ -38,7 +38,7 @@ router.post('/login', function(req,res){
 		userName: req.body.userName,
 		password: req.body.password
     }}).then((User)=>{
-        delete User.password;
+        //delete User.password;
         res.send(User);
 }).catch((err)=>{
   res.status(403).send({error:err.toString()});

@@ -11,17 +11,17 @@ router.get('/', (req, resp)=>{
         console.log(e);
         resp.sendStatus(500)}
     );
-})
+})/*
 router.get('/:id', (req, res) => {
-    //Gets a sighting
-    Sighting.find({ where: { sightingId: req.params.id } })
+    //Gets the sightings of an user
+    Sighting.find({ where: { userName: req.params.id } })
         .then(sighting => res.send(sighting))
         .catch(error => res.sendStatus(500));
-});
+});*/
 
-router.get('/byUser/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const userName = req.params.id;
-    Sighting.findAll({where:{user:userName}})
+    Sighting.findAll({where:{userName:userName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });

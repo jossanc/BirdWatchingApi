@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/users',User);
 app.use('/birds',Bird);
-app.use('/bySeason',BirdSeason);
-app.use('/byArea',Live);
+app.use('/seasons',BirdSeason);
+app.use('/live',Live);
 app.use('/sightings',Sighting);
 app.use('/photos',Photo);
 app.use('/areas',Area);

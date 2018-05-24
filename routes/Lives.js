@@ -5,8 +5,9 @@ const { Live } = require('../models/Models');
 var router = express.Router();
 
 router.get('/:id', (req, res) => {
-    const areaName = req.params.id;
-    Live.findAll({where:{areaName:areaName}})
+    const birdName = req.params.id;
+    Live.findAll({attributes:['areaName'],
+    where:{commonName:birdName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });
