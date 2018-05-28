@@ -8,7 +8,7 @@ const { Sighting } = require('./routes/Sightings');
 const { Photo } = require('./routes/Photos');
 const { Area } = require('./routes/Areas');
 const { Challenge } = require('./routes/Challenges');
-const { Achievement } = require('./routes/Achievements');
+const { AchievementUser } = require('./routes/AchievementsUsers');
 
 const PORT = 8181;
 var app = express();
@@ -24,7 +24,7 @@ app.use('/sightings',Sighting);
 app.use('/photos',Photo);
 app.use('/areas',Area);
 app.use('/challenges',Challenge);
-app.use('/achievements',Achievement);
+app.use('/achievements',AchievementUser);
 /*
 app.get('/Cotorra.jpg', function(req,res){
  //   if(req.userName){

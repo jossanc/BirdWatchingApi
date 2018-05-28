@@ -1,8 +1,8 @@
 const { Achievement } = require('../Achievement');
 
 Achievement.bulkCreate([
-    {achievementName: 'Urbanita novato',
-    challengeName: 'Urbanita',
-    userName: 'Jose'
-}
-]).then(() => { }).catch(() => { });
+{achievementName: 'Urbanita novato'},
+{achievementName: 'Campesino novato'},
+{achievementName: 'Novato'},
+{achievementName: 'Montañero novato'}
+]).then(() => { }).catch((e) => {console.log(e) });

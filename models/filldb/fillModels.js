@@ -7,4 +7,5 @@ require('./fillBirdSeason');
 require('./fillLive');
 require('./fillUser');
 require('./fillAchievement');
+require('./fillAchievementUser');
 require('./fillSighting');

@@ -11,6 +11,11 @@ User.bulkCreate([
         userName: 'Marga',
         password: 'pass123',
         areaName: 'Valladolid'
+    },
+    {
+        userName: 'David',
+        password: 'pass123',
+        areaName: 'León'
     }
 ]).then(() => { }).catch(() => { });
     

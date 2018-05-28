@@ -1,11 +1,11 @@
 const express = require('express');
 const Sequelize = require('sequelize');
-const { Achievement } = require('../models/Models');
+const { AchievementUser } = require('../models/Models');
 
 var router = express.Router();
 
 router.get('/', (req, resp)=>{
-    Achievement.findAll({}).then((Achievements)=>{
+    AchievementUser.findAll({}).then((Achievements)=>{
         resp.send(Achievements);
     }).catch((e)=>{
         console.log(e);
@@ -14,9 +14,9 @@ router.get('/', (req, resp)=>{
 })
 router.get('/:userName', (req, res) => {
     //Gets the achievements of an user
-    Achievement.findAll({attributes:['achievementName','challengeName'],
+    AchievementUser.findAll({attributes:['achievementName','challengeName'],
 	 where: {userName: req.params.userName } })
-        .then(Achievement => res.send(Achievement))
+        .then(AchievementUser => res.send(AchievementUser))
         .catch(error => res.sendStatus(500));
 });
 router.post('/', (req, res) => {
@@ -25,12 +25,12 @@ router.post('/', (req, res) => {
     var data = {};
     data.achievementName = req.body.achievementName;
     data.userName = req.body.userName;
-    data.challengeName = req.body.challenge;
+    data.challengeName = req.body.challengeName;
 
-    Achievement.create(data)
+    AchievementUser.create(data)
         .then((ok) => res.send(ok))
         .catch((err) => res.sendStatus(500));
 });
 module.exports = {
-    Achievement: router
+    AchievementUser: router
 }

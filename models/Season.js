@@ -2,7 +2,7 @@ const { database } = require('./Sequelize');
 const Sequelize = require('sequelize');
 
 const Season = database.define('seasons', {
-    seasonName:{ type: Sequelize.STRING,primaryKey:true}
+    seasonName:{ type: Sequelize.STRING(40),primaryKey:true}
 }, { createdAt: false, updatedAt: false });
 
 
