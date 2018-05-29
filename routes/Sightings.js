@@ -19,8 +19,9 @@ router.get('/:id', (req, res) => {
         .catch(error => res.sendStatus(500));
 });*/
 
-router.get('/:id', (req, res) => {
-    const userName = req.params.id;
+// envia los avistamientos de un usuario
+router.get('/byuser/:user', (req, res) => {
+    const userName = req.params.user;
     Sighting.findAll({where:{userName:userName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
@@ -29,16 +30,16 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     //Creates a sighting
     console.log(req);
-    if (req.body.userName === undefined ||
+ /*   if (req.body.userName === undefined ||
         req.body.commonName === undefined ||
         req.body.areaName === undefined ) {
         res.sendStatus(412);
         return;
-    }
+    }*/
     var data = {};
-    data.sightingDate = Sequelize.NOW;
+//    data.sightingDate = Sequelize.NOW;
     data.userName = req.body.userName;
-    data.commonBirdName = req.body.commonName;
+    data.commonBirdName = req.body.commonBirdName;
     data.areaName = req.body.areaName;
 
     Sighting.create(data)
@@ -46,21 +47,22 @@ router.post('/', (req, res) => {
         .catch((err) => res.sendStatus(500));
 });
 
-router.put('/update',function(req,res){
-    const userName1 = req.body.userName;
-    Sighting.findAll({where:{user:userName1}})
-    .then((User)=>{
-        User.update({
-            userName:userName1,
-            password:req.body.password,
+router.put('/update/:id',function(req,res){
+    const id = req.params.id;
+    const date=Sequelize.NOW;
+    Sighting.findOne({where:{sightingId:id}})
+    .then((Sighting)=>{
+        Sighting.update({
+          //  sightingDate = date,
+            commonBirdName:req.body.commonBirdName,
             areaName:req.body.areaName
         })
     }).catch(()=>res.sendStatus(500));
 });
 
-router.delete('/', function(req,res){
-        const userName=req.params.userName;
-        User.destroy({where:{userName:userName}})
+router.delete('/:id', function(req,res){
+        const id=req.params.id;
+        Sighting.destroy({where:{sightingId:id}})
         .then((ok)=>res.status(200).send()) 
         .catch((err)=>{
       res.status(403).send({error:err.toString()});

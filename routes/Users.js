@@ -5,16 +5,6 @@ const { User } = require('../models/Models');
 
 var router = express.Router();
 /*
-router.get('/', (req, resp)=>{
-    User.findAll({}).then((users)=>{
-        resp.send(users);
-    }).catch((e)=>{
-        console.log(e);
-        resp.sendStatus(500)}
-    );
-})
-*/
-/*
 sequelize.query("SELECT * FROM users").then(myTableRows => {
   console.log(myTableRows)
 })*/

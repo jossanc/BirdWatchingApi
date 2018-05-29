@@ -14,6 +14,14 @@ router.get('/birds', (req, resp)=>{
         resp.sendStatus(500)}
     );
 });
+router.get('/birdsbysn', (req, resp)=>{
+    Bird.findAll({order:[['scientificName']]}).then((birds)=>{
+        resp.send(birds);
+    }).catch((e)=>{
+        console.log(e);
+        resp.sendStatus(500)}
+    );
+});
 router.get('/birdsName', (req, resp)=>{
     Bird.findAll({attributes:['commonName']}).then((birds)=>{
         resp.send(birds);
