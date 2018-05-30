@@ -1,4 +1,4 @@
-const { Area } = require('./Area');
+const { Area, sequelize } = require('./Area');
 const { Challenge } = require('./Challenge');
 const { Ecosystem } = require('./Ecosystem');
 const { Season } = require('./Season');
@@ -23,5 +23,6 @@ module.exports = {
   Sighting,
   Photo,
   Live,
-  BirdSeason
+  BirdSeason,
+  sequelize
 };

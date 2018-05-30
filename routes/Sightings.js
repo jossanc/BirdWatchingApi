@@ -5,7 +5,9 @@ const { Sighting } = require('../models/Models');
 var router = express.Router();
 
 router.get('/', (req, resp)=>{
-    Sighting.findAll({}).then((sightings)=>{
+    Sighting.findAll({
+    order:[['sightingDate','DESC']]})
+    .then((sightings)=>{
         resp.send(sightings);
     }).catch((e)=>{
         console.log(e);
@@ -22,7 +24,8 @@ router.get('/:id', (req, res) => {
 // envia los avistamientos de un usuario
 router.get('/byuser/:user', (req, res) => {
     const userName = req.params.user;
-    Sighting.findAll({where:{userName:userName}})
+    Sighting.findAll({where:{userName:userName},
+    order:[['sightingDate','DESC']]})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });

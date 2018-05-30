@@ -1,6 +1,6 @@
 const express = require('express');
 const Sequelize = require('sequelize');
-const { Live, sequelize, User } = require('../models/Models');
+const { Live, sequelize } = require('../models/Models');
 
 var router = express.Router();
 
@@ -21,7 +21,7 @@ router.get('/findbyarea/:id', (req, res) => {
 
 router.get('/findbyarea2/:id', (req, res) => {
     const area = req.params.id;
-    sequelize.query("SELECT commonName,scientificName,family,ecosystemName from birds where commonName IN (SELECT commonName FROM lives WHERE areaName=:areaN",
+    sequelize.query("SELECT commonName,scientificName,family,ecosystemName from birds where commonName IN (SELECT commonName FROM lives WHERE areaName=:areaN)",
     { replacements: { areaN: area  },
      type: sequelize.QueryTypes.SELECT })
     .then(data=>res.send(data))

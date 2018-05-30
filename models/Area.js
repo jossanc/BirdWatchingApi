@@ -7,5 +7,6 @@ const Area = database.define('area', {
 
 
 module.exports={
-    Area
+    Area, 
+    sequelize: database
 }
