@@ -30,14 +30,15 @@ router.get('/birdsName', (req, resp)=>{
         resp.sendStatus(500)}
     );
 });
-/*
-router.get('/:id', (req, res) => {
+
+router.get('/getecosystem/:id', (req, res) => {
     //Gets a bird
-    Bird.find({ where: { commonName: req.params.id } })
+    Bird.findOne({attributes:['ecosystemName'],
+         where: { commonName: req.params.id } })
         .then(bird => res.send(bird))
         .catch(error => res.sendStatus(500));
 });
-*/
+
 
 module.exports = {
     Bird: router

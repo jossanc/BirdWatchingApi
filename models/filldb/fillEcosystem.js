@@ -6,7 +6,7 @@ Ecosystem.bulkCreate([
     {ecosystemName: 'Zona semiarbolada'},
     {ecosystemName: 'Zona de pradera'},
     {ecosystemName: 'Zona boscosa'},
-    {ecosystemName: 'Zona de montaña '},
+    {ecosystemName: 'Zona de montaña'},
     {ecosystemName: 'Zona rural'},
     {ecosystemName: 'Brezales'},
     {ecosystemName: 'Zona de humedales'}

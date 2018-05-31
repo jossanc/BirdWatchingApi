@@ -1,6 +1,6 @@
 const express = require('express');
 const Sequelize = require('sequelize');
-const { Sighting } = require('../models/Models');
+const { Sighting, sequelize } = require('../models/Models');
 
 var router = express.Router();
 
@@ -26,6 +26,15 @@ router.get('/byuser/:user', (req, res) => {
     const userName = req.params.user;
     Sighting.findAll({where:{userName:userName},
     order:[['sightingDate','DESC']]})
+    .then(data=>res.send(data))
+    .catch(()=>res.sendStatus(500));
+});
+
+router.get('/byuser/count/:user', (req, res) => {
+    const userName = req.params.user;
+    Sighting.findAll({ 
+    attributes: [[sequelize.fn('COUNT', sequelize.col('sightingId')), 'count']],
+    where:{userName:userName}}) 
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });
@@ -56,7 +65,7 @@ router.put('/update/:id',function(req,res){
     Sighting.findOne({where:{sightingId:id}})
     .then((Sighting)=>{
         Sighting.update({
-          //  sightingDate = date,
+ //           sightingDate = date,
             commonBirdName:req.body.commonBirdName,
             areaName:req.body.areaName
         })

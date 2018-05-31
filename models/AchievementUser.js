@@ -5,8 +5,9 @@ const { Challenge } = require('./Challenge');
 const { Achievement } = require('./Achievement');
 
 const AchievementUser = database.define('achievementusers', {
-    achievementId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true}
-   // achievementName:{ type: Sequelize.STRING(40)}
+    //achievementId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement: true}
+    achievementName:{ type: Sequelize.STRING(40),primaryKey:true},
+   userName:{ type: Sequelize.STRING(40),primaryKey:true}
 /*user: {
         type: Sequelize.STRING,
              references: {
@@ -30,9 +31,9 @@ const AchievementUser = database.define('achievementusers', {
         }
     }*/
 }, { createdAt: false, updatedAt: false });
-AchievementUser.belongsTo(User,{foreignKey: 'userName', targetKey:'userName'});
+//AchievementUser.belongsTo(User,{foreignKey: 'userName', targetKey:'userName',primaryKey: true});
 AchievementUser.belongsTo(Challenge,{foreignKey: 'challengeName', targetKey: 'challengeName'});
-AchievementUser.belongsTo(Achievement,{foreignKey: 'achievementName', targetKey: 'achievementName'});
+//AchievementUser.belongsTo(Achievement,{foreignKey: 'achievementName', targetKey: 'achievementName'});
 
 module.exports={
     AchievementUser

@@ -10,16 +10,16 @@ router.get('/findbybird/:id', (req, res) => {
     where:{commonName:birdName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
-});
+});/*
 router.get('/findbyarea/:id', (req, res) => {
     const areaName = req.params.id;
     Live.findAll({attributes:['commonName'],
     where:{areaName:areaName}})
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
-});
+});*/
 
-router.get('/findbyarea2/:id', (req, res) => {
+router.get('/findbyarea/:id', (req, res) => {
     const area = req.params.id;
     sequelize.query("SELECT commonName,scientificName,family,ecosystemName from birds where commonName IN (SELECT commonName FROM lives WHERE areaName=:areaN)",
     { replacements: { areaN: area  },
