@@ -25,6 +25,7 @@ app.use('/photos',Photo);
 app.use('/areas',Area);
 app.use('/challenges',Challenge);
 app.use('/achievements',AchievementUser);
+app.use('/images', express.static('/home/tfg/pictures'));
 /*
 app.get('/Cotorra.jpg', function(req,res){
  //   if(req.userName){

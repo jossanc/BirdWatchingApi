@@ -61,11 +61,9 @@ router.post('/', (req, res) => {
 
 router.put('/update/:id',function(req,res){
     const id = req.params.id;
-    const date=Sequelize.NOW;
     Sighting.findOne({where:{sightingId:id}})
     .then((Sighting)=>{
         Sighting.update({
- //           sightingDate = date,
             commonBirdName:req.body.commonBirdName,
             areaName:req.body.areaName
         })

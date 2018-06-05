@@ -17,7 +17,6 @@ router.get('/byseason/:id',(req,res) => {
     sequelize.query("SELECT * FROM birds WHERE commonName IN( SELECT commonName FROM birdseasons WHERE seasonName=:season)",
     {replacements: {season: seasonN},
      type: sequelize.QueryTypes.SELECT })
-    
     .then(data=>res.send(data))
     .catch(()=>res.sendStatus(500));
 });
