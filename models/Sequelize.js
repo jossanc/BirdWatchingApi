@@ -9,7 +9,8 @@ var database = new Sequelize(
     {
         host:DATABASE_SETTINGS.dbHost,
         dialect:DATABASE_SETTINGS.dbType,
-        pool:{
+	timezone: '+02:00',
+	pool:{
             max:5,
             min:0,
             idle:10000
